@@ -1,0 +1,211 @@
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+ul, li{
+    list-style: none;
+}
+img{
+    max-width: 100%;
+    display: block;
+    border-radius: 0.3rem;
+}
+
+/* BODY */
+body{
+    font-family: 'Vollkorn', Georgia ,serif;
+}
+
+/* CONTAINER */
+.container{
+    display: grid;
+    grid-template-columns: minmax(160px, 1fr) 3fr 300px;
+    grid-template-areas: 
+    "header header header"
+    "sidenav content advert"
+    "footer footer footer";
+}
+
+/* HEADER */
+.header{
+    grid-area: header;
+    background: linear-gradient(135deg, #8844ee, #b07dfb);
+    padding: 1.9rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+.header .logo{
+    max-width: 200px;
+}
+.header  nav ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+.header nav ul li + li{
+    margin-left: 1.9rem;
+}
+.header nav ul li a{
+    padding: 10px;
+    display: block;
+    color: white;
+    font-size: 1.125rem;
+    background: rgba(0, 0, 0, .1);
+    border-radius: 0.3rem;
+    transition: 0.1s;
+}
+.header nav ul li a:hover{
+    background: rgba(0, 0, 0, .5);
+}
+
+/* SIDENAV */
+.sidenav{
+    grid-area: sidenav;
+    background: #fafbfc;
+    padding: 1.9rem;
+}
+.sidenav ul li a{
+    display: block;
+    min-width: 3.75rem;
+    max-width: 6.3rem;
+    margin: 0 auto 1.9rem auto;
+    background: white;
+    padding: 1.3rem;
+    border-radius: 0.3rem;
+    box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, .15);
+    transition: 0.1s ease-out;
+}
+.sidenav ul li a:hover{
+    background: #b07dfb;
+}
+
+/* COL-WIDE */
+.col-wide{
+    grid-column: 1 / -1;
+}
+
+/* CONTENT */
+.content{
+    grid-area: content;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.9rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.9rem;
+}
+.content .title{
+    color: #b07dfb;
+}
+.content .title h1{
+    font-size: 3.75rem;
+    line-height: 1;
+    font-weight: 700;
+}
+.content .title span{
+    font-size: 0.875rem;
+    font-style: italic;
+} 
+.content .characteristics{
+    display: flex;
+    align-items: flex-start;
+}
+.content .characteristics > div{
+    width: 80px;
+    text-align: center;
+    background: linear-gradient(135deg, #8844ee, #b07dfb);
+    border-radius: 0.3rem;
+    box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, .15);
+    position: relative;
+}
+.content .characteristics > div:first-child{
+    margin-right: 1.9rem;
+}
+.content .characteristics span{
+    display: block;
+    color: #b07dfb;
+}
+.content .characteristics .num{
+    color: #b07dfb;
+    font-size: 3rem;
+    line-height: 1;
+    margin: 10px auto;
+}
+.content .characteristics .label{
+    background: white;
+    border-radius: 0 0 0.3rem 0.3rem;
+    padding: 0.3rem 0;
+    position: relative;
+    top: 2px;
+}
+.content .image1{
+    grid-row: span 2;
+    align-self: end;
+}
+.content .image2{
+    align-self: end;
+}
+.content p{
+    font-size: 1.2rem;
+    line-height: 1.6;
+    letter-spacing: -0.005rem;
+    color: rgba(0, 0, 0, .7);
+}
+.content .info p + p{
+    margin-top: 1.9rem;
+}
+.content .contrast{
+    max-width: 16rem;
+    color: #b07dfb;
+    font-size: 0.875rem;
+}
+.content .quote, .attributes{
+    padding: 1.9rem;
+    border-radius: 0.3rem;
+    box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, .15);
+    background: linear-gradient(135deg, #8844ee, #b07dfb);
+    align-self: start;
+}
+.content .quote p{
+    max-width: 500px;
+    font-size: 1.5rem;
+    font-style: italic;
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+}
+.content .attributes li{
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.125rem;
+    padding: 0.95rem;
+}
+.content .attributes li + li{
+    border-top: 2px solid #b07dfb;
+}
+
+
+
+/* ADVERT */
+.advert{
+    grid-area: advert;
+    background: #fafbfc;
+    display: grid;
+    align-content: start;
+    padding: 1.9rem;
+    gap: 1.9rem;
+}
+
+/* FOOTER */
+.footer{
+    grid-area: footer;
+    background: linear-gradient(135deg, #8844ee, #b07dfb);
+}
+.footer p{
+    color: white;
+    text-align: center;
+    padding: 1.9rem;
+}
