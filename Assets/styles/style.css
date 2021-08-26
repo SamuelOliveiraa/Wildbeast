@@ -9,7 +9,7 @@ ul, li{
     list-style: none;
 }
 img{
-    max-width: 100%;
+    width: 100%;
     display: block;
     border-radius: 0.3rem;
 }
@@ -69,12 +69,12 @@ body{
 }
 .sidenav ul li a{
     display: block;
-    min-width: 3.75rem;
-    max-width: 6.3rem;
+    min-width: 60px;
+    max-width: 100px;
     margin: 0 auto 1.9rem auto;
     background: white;
-    padding: 1.3rem;
-    border-radius: 0.3rem;
+    padding: 20px;
+    border-radius: 0.35rem;
     box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, .15);
     transition: 0.1s ease-out;
 }
@@ -187,16 +187,17 @@ body{
     border-top: 2px solid #b07dfb;
 }
 
-
-
 /* ADVERT */
-.advert{
+.adverts{
     grid-area: advert;
     background: #fafbfc;
     display: grid;
     align-content: start;
     padding: 1.9rem;
     gap: 1.9rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    align-content: start;
+    justify-content: space-around;
 }
 
 /* FOOTER */
@@ -208,4 +209,81 @@ body{
     color: white;
     text-align: center;
     padding: 1.9rem;
+}
+
+/* MEDIA QUERIE */
+@media (max-width: 1200px){
+    .container{
+        grid-template-areas: 
+        "header header header"
+        "sidenav content content"
+        "sidenav advert advert"
+        "footer footer footer";
+    }
+}
+
+@media (max-width: 760px){
+    .container{
+        grid-template-columns: 100%;
+        grid-template-areas: 
+        "header"
+        "sidenav"
+        "content"
+        "advert"
+        "footer";
+    }
+    /* HEADER */
+    .header{
+        grid-template-columns: auto;
+    }
+    .header .logo{
+        margin-bottom: 1.25rem;
+    }
+    .header nav ul li a{
+        font-size: 1rem;
+    }
+    .header nav ul li + li{
+        margin-left: 0.65rem;
+    }
+    /* SIDENAV */
+    .sidenav {
+        position: relative;
+        padding: 0 1.9rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    
+    @keyframes arrow{
+        from{
+            right: 30px;
+        }
+        to{
+            right: 20px;
+        }
+    }
+    .sidenav::after{
+        content: '→';
+        position: absolute;
+        top: 5px;
+        right: 30px;
+        color: rgba(0, 0, 0, .3);
+        animation: arrow .5s ease-in 0s infinite alternate;
+    }
+    .sidenav ul{
+        display: flex;
+    }
+    .sidenav ul li{
+        flex: 1 0 60px;
+    }
+    .sidenav ul li a{
+        width: 100px;
+        margin: 30px 30px 30px 0;
+    }  
+
+    @media (max-width: 600px){
+        .content{
+            grid-template-columns: auto;
+        }
+    }
 }
